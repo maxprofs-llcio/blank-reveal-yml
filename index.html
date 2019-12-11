@@ -278,12 +278,16 @@ img:
 ---
 
 Must have at least `src` attribute to become a valid image.
+Each group will map to a picture.
 
 ```yaml
-src: # Image path: str (&#34;&#34;)
-width: # Width attribute of &lt;img&gt; tag: str (&#34;&#34;)
-height: # Height attribute of &lt;img&gt; tag: str (&#34;&#34;)
+- src: # Image path: str (&#34;&#34;)
+  width: # Width attribute of &lt;img&gt; tag: str (&#34;&#34;)
+  height: # Height attribute of &lt;img&gt; tag: str (&#34;&#34;)
 ```
+
+If there has only one image, the options can under &#34;img&#34; key directly
+without to list them.
 
 
 
