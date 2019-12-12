@@ -73,6 +73,7 @@ Scroll down ↓ to see how to launch and deployment.
 
 
 
+
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## Requirements
@@ -86,6 +87,7 @@ Install modules:
 ```bash
 pip install -r requirements.txt
 ```
+
 
 
 
@@ -108,6 +110,7 @@ openssl genrsa 2048 &gt; localhost.key
 chmod 400 localhost.key
 openssl req -new -x509 -nodes -sha256 -days 365 -key localhost.key -out localhost.crt
 ```
+
 
 
 
@@ -135,6 +138,7 @@ At last, each commit will enable auto deployment.
 The first time maybe takes longer.
 
 Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action).
+
 
 
 
@@ -167,6 +171,7 @@ slide-num: # Reveal.js slide number style: str / bool (c/t)
 
 
 
+
 </textarea></section>
 
 </section>
@@ -180,6 +185,7 @@ slide-num: # Reveal.js slide number style: str / bool (c/t)
 
 **All** paragarphs are written in [Markdown](https://daringfireball.net/projects/markdown/syntax).
 But **not** allow HTML syntax.
+
 
 
 
@@ -208,6 +214,7 @@ nav:
     img:
       src: ...
 ```
+
 
 
 
@@ -245,6 +252,7 @@ nav:
 
 
 
+
 </textarea></section><section data-markdown><textarea data-template>
 ## Slide Attributes
 
@@ -259,9 +267,14 @@ title: # Title, transform into H2 tag: str
 doc: # Pargraph, allow multiline: str
 math: # Latex math without &#34;$$&#34; brackets, allow multiline: str
 embed: # Embeded source path, like PDF: str
+youtube:
+  src: # Embeded YouTube srouce from embed code: str
+  width: # Video width: str
+  height: # Video height: str
 img:
   - ... # A list of image source, please see the documentation.
 ```
+
 
 
 
@@ -286,6 +299,7 @@ without to list them.
 
 
 
+
 </textarea></section>
 </section>
 
@@ -299,6 +313,7 @@ without to list them.
 The source of this doc: &lt;https://github.com/KmolYuan/blank-reveal-yml/blob/gh-pages/reveal.yml&gt;
 
 Scroll down ↓ to see the examples.
+
 
 
 
@@ -327,6 +342,7 @@ Some thing **important**.
 
 
 
+
 </textarea></section><section data-markdown><textarea data-template>
 ## Images
 
@@ -341,6 +357,7 @@ img:
 
 
 <img src="static/img/icon.png" alt="" width="20%" /><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""/>
+
 
 </textarea></section><section data-markdown><textarea data-template>
 ## Maths
@@ -368,6 +385,23 @@ math: |
 </script>
 
 
+
+</textarea></section><section data-markdown><textarea data-template>
+## Embeded YouTube Video
+
+---
+
+```yaml
+youtube:
+  src: https://www.youtube.com/embed/IpPH61BWObs
+  width: 800pt
+  height: 500pt
+```
+
+
+
+
+<iframe src="https://www.youtube.com/embed/IpPH61BWObs" width="600pt"  height="400pt" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </textarea></section><section data-markdown><textarea data-template>
 ## Embeded PDF
 
@@ -382,6 +416,7 @@ embed: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
 <div style="position: relative">
 <embed class="stretch" width="1000px" height="500px" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"/>
 </div>
+
 </textarea></section>
 </section>
 
