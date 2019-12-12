@@ -97,18 +97,20 @@ pip install -r requirements.txt
 
 ---
 
-```bash
-python app.py
-# Without SSH
-python -m flask app.py
-```
-
 Generate SSL key:
 
 ```bash
 openssl genrsa 2048 &gt; localhost.key
 chmod 400 localhost.key
 openssl req -new -x509 -nodes -sha256 -days 365 -key localhost.key -out localhost.crt
+```
+
+Startup in localhost:
+
+```bash
+python app.py
+# Without SSL
+flask run
 ```
 
 
