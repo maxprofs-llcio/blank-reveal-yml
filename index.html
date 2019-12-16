@@ -34,25 +34,37 @@
         display: inline-block;
         margin: 20px;
     }
-    figure figcaption {
-        text-align: center;
-    }
+    figure figcaption { text-align: center; }
     .reveal h1 { font-size: 40pt; }
     .reveal h2 { font-size: 35pt; }
     .reveal h3 { font-size: 30pt; }
     .reveal h4 { font-size: 25pt; }
     .reveal p, .reveal li, .reveal table { font-size: 20pt; }
     .reveal strong { color: red; }
-    .reveal section img {
-        border: none;
-        box-shadow: none !important;
+    .reveal pre, .reveal section img {
+      border: none;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+    .reveal code {
+      font-family: Consolas, Mono;
+      border-radius: 10px;
+    }
+    .reveal p code {
+      color: white;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 5px;
+      border-color: gray;
+      background: gray;
     }
     .reveal .slide-number {
         font-size: 24pt;
         position: absolute;
         right: 2em;
         top: 1em;
-        color: black;
+        color: #877b68;
         background-color: transparent;
     }
     
@@ -274,13 +286,16 @@ The path string are allow remote URI.
 title: # Title, transform into H2 tag: str (&#34;&#34;)
 doc: # Pargraph, allow multiline: str (&#34;&#34;)
 math: # Latex math without &#34;$$&#34; brackets, allow multiline: str (&#34;&#34;)
-embed: # Embeded source path, like PDF: str (required)
 youtube:
   src: # Embeded YouTube srouce from embed code: str (required)
   width: # Video width: int / str (&#34;&#34;)
   height: # Video height: int / str (&#34;&#34;)
 img:
   - ... # A list of image source, please see the documentation.
+embed:
+  src: # Embeded source path, like PDF: str (required)
+  width: # Source width: int / str (&#34;&#34;)
+  height: # Source height: int / str (&#34;&#34;)
 ```
 
 
@@ -361,16 +376,17 @@ doc: |
 img:
 - label: Ubuntu Logo
   src: https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg
+  width: 50%
 - label: Google Logo
   src: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
 ```
 
 
 <figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" alt="" width="20%" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" alt="" width="50%" />
 <figcaption>Ubuntu Logo</figcaption>
 </figure><figure>
-<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""/>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""  />
 <figcaption>Google Logo</figcaption>
 </figure>
 
@@ -424,13 +440,14 @@ youtube:
 ---
 
 ```yaml
-embed: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+embed:
+  src: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
 ```
 
 
 
 <div style="position: relative">
-<embed class="stretch" width="1000px" height="500px" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"/>
+<embed class="stretch" width="1000px" height="450px" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"/>
 </div>
 
 </textarea></section>
