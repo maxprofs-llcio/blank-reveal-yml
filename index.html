@@ -30,24 +30,26 @@
 </head>
 <body>
 <style>
-    figure {
-        display: inline-block;
-        margin: 20px;
+    .reveal figure {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+      margin: 20px;
     }
-    figure figcaption { text-align: center; }
+    .reveal figure figcaption { text-align: center; }
     .reveal h1 { font-size: 40pt; }
     .reveal h2 { font-size: 35pt; }
     .reveal h3 { font-size: 30pt; }
     .reveal h4 { font-size: 25pt; }
     .reveal p, .reveal li, .reveal table { font-size: 20pt; }
     .reveal strong { color: red; }
-    .reveal pre, .reveal section img {
+    .reveal pre code, .reveal section img {
       border: none;
       -webkit-box-shadow: none !important;
       -moz-box-shadow: none !important;
       box-shadow: none !important;
     }
-    .reveal code {
+    .reveal pre code {
       font-family: Consolas, Mono;
       border-radius: 10px;
     }
@@ -73,7 +75,7 @@
 <div class="reveal">
 <div class="slides">
 
-<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
+<section data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Reveal.yml Documentation
@@ -166,7 +168,7 @@ Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/g
 </textarea></section>
 </section>
 
-<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
+<section data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Project Options
@@ -196,7 +198,7 @@ slide-num: # Reveal.js slide number style: str / bool (c/t)
 
 </section>
 
-<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
+<section data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Markdown
@@ -214,7 +216,7 @@ But **not** allow HTML syntax.
 
 </section>
 
-<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
+<section data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Reveal.js Slides
@@ -327,7 +329,7 @@ without to list them.
 </textarea></section>
 </section>
 
-<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
+<section data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Examples
