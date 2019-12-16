@@ -30,6 +30,13 @@
 </head>
 <body>
 <style>
+    figure {
+        display: inline-block;
+        margin: 20px;
+    }
+    figure figcaption {
+        text-align: center;
+    }
     .reveal h1 { font-size: 40pt; }
     .reveal h2 { font-size: 35pt; }
     .reveal h3 { font-size: 30pt; }
@@ -40,7 +47,6 @@
         border: none;
         box-shadow: none !important;
     }
-    /*page number*/
     .reveal .slide-number {
         font-size: 24pt;
         position: absolute;
@@ -55,7 +61,7 @@
 <div class="reveal">
 <div class="slides">
 
-<section data-background-transition="linear"data-background="static/img/icon.png"data-background-size="25%">
+<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Reveal.yml Documentation
@@ -148,7 +154,7 @@ Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/g
 </textarea></section>
 </section>
 
-<section data-background-transition="linear"data-background="static/img/icon.png"data-background-size="25%">
+<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Project Options
@@ -178,7 +184,7 @@ slide-num: # Reveal.js slide number style: str / bool (c/t)
 
 </section>
 
-<section data-background-transition="linear"data-background="static/img/icon.png"data-background-size="25%">
+<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Markdown
@@ -196,7 +202,7 @@ But **not** allow HTML syntax.
 
 </section>
 
-<section data-background-transition="linear"data-background="static/img/icon.png"data-background-size="25%">
+<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Reveal.js Slides
@@ -265,14 +271,14 @@ All attributes are default to empty string.
 The path string are allow remote URI.
 
 ```yaml
-title: # Title, transform into H2 tag: str
-doc: # Pargraph, allow multiline: str
-math: # Latex math without &#34;$$&#34; brackets, allow multiline: str
-embed: # Embeded source path, like PDF: str
+title: # Title, transform into H2 tag: str (&#34;&#34;)
+doc: # Pargraph, allow multiline: str (&#34;&#34;)
+math: # Latex math without &#34;$$&#34; brackets, allow multiline: str (&#34;&#34;)
+embed: # Embeded source path, like PDF: str (required)
 youtube:
-  src: # Embeded YouTube srouce from embed code: str
-  width: # Video width: str
-  height: # Video height: str
+  src: # Embeded YouTube srouce from embed code: str (required)
+  width: # Video width: int / str (&#34;&#34;)
+  height: # Video height: int / str (&#34;&#34;)
 img:
   - ... # A list of image source, please see the documentation.
 ```
@@ -290,9 +296,10 @@ Must have at least `src` attribute to become a valid image.
 Each group will map to a picture.
 
 ```yaml
-- src: # Image path: str (&#34;&#34;)
-  width: # Width attribute of &lt;img&gt; tag: str (&#34;&#34;)
-  height: # Height attribute of &lt;img&gt; tag: str (&#34;&#34;)
+- label: # Image caption: str (&#34;&#34;)
+  src: # Image path: str (required)
+  width: # Width attribute of &lt;img&gt; tag: int / str (&#34;&#34;)
+  height: # Height attribute of &lt;img&gt; tag: int / str (&#34;&#34;)
 ```
 
 If there has only one image, the options can under &#34;img&#34; key directly
@@ -305,7 +312,7 @@ without to list them.
 </textarea></section>
 </section>
 
-<section data-background-transition="linear"data-background="static/img/icon.png"data-background-size="25%">
+<section data-background-transition="linear" data-background="static/img/icon.png" data-background-size="25%">
 
 <section data-markdown><textarea data-template>
 ## Examples
@@ -352,13 +359,20 @@ doc: |
 
 ```yaml
 img:
-  - src: img/icon.png
-    width: 20%
-  - src: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+- label: Ubuntu Logo
+  src: https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg
+- label: Google Logo
+  src: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
 ```
 
 
-<img src="static/img/icon.png" alt="" width="20%" /><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""/>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" alt="" width="20%" />
+<figcaption>Ubuntu Logo</figcaption>
+</figure><figure>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""/>
+<figcaption>Google Logo</figcaption>
+</figure>
 
 
 </textarea></section><section data-markdown><textarea data-template>
