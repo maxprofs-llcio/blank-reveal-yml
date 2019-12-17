@@ -87,7 +87,6 @@ Scroll right → to see the tutorial.
 
 Scroll down ↓ to see how to launch and deployment.
 
-
 </textarea></section>
 <section data-markdown><textarea data-template>
 ## Requirements
@@ -101,7 +100,6 @@ Install modules:
 ```bash
 pip install -r requirements.txt
 ```
-
 
 </textarea></section><section data-markdown><textarea data-template>
 ## Startup
@@ -123,7 +121,6 @@ python app.py
 # Without SSL
 flask run
 ```
-
 
 </textarea></section><section data-markdown><textarea data-template>
 ## Build Static Page
@@ -149,7 +146,6 @@ The first time maybe takes longer.
 
 Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action).
 
-
 </textarea></section>
 </section>
 <section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
@@ -172,7 +168,6 @@ transition: # Transition mode: str (linear)
 slide-num: # Reveal.js slide number style: str / bool (c/t)
 ```
 
-
 </textarea></section>
 
 </section>
@@ -183,7 +178,6 @@ slide-num: # Reveal.js slide number style: str / bool (c/t)
 
 **All** paragarphs are written in [Markdown](https://daringfireball.net/projects/markdown/syntax).
 But **not** allow HTML syntax.
-
 
 </textarea></section>
 
@@ -206,7 +200,6 @@ nav:
     img:
       src: ...
 ```
-
 
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -238,7 +231,6 @@ nav:
         doc: ...
 ```
 
-
 </textarea></section><section data-markdown><textarea data-template>
 ## Slide Attributes
 
@@ -249,6 +241,7 @@ All attributes are default to empty string.
 The path string are allow remote URI.
 
 ```yaml
+id: # Custom section id: str (&#34;&#34;)
 title: # Title, transform into H2 tag: str (&#34;&#34;)
 doc: # Pargraph, allow multiline: str (&#34;&#34;)
 math: # Latex math without &#34;$$&#34; brackets, allow multiline: str (&#34;&#34;)
@@ -263,7 +256,6 @@ embed:
   height: # Source height: int / str (&#34;&#34;)
 fragment: ... # Fragment option, please see the documentation.
 ```
-
 
 </textarea></section><section data-markdown><textarea data-template>
 ## Image Attributes
@@ -283,13 +275,13 @@ Each group will map to a picture.
 If there has only one image, the options can under `img` key directly
 without to list them.
 
-
 </textarea></section><section data-markdown><textarea data-template>
 ## Fragment Elements
 
 ---
 
-Each slide can added a `fragment` option. Except `title` and `doc`.
+Each slide can added a [Fragment option](https://github.com/hakimel/reveal.js#fragments).
+Except `title` and `doc`.
 
 Images will apply the effect one by one.
 
@@ -303,7 +295,6 @@ fragment:
   embed: ...
 ```
 
-
 </textarea></section>
 </section>
 <section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
@@ -314,7 +305,6 @@ fragment:
 The source of this doc: &lt;https://github.com/KmolYuan/blank-reveal-yml/blob/gh-pages/reveal.yml&gt;
 
 Scroll down ↓ to see the examples.
-
 
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -337,7 +327,6 @@ doc: |
 |:------:|:------:|
 | A | B |
 
-
 </textarea></section><section data-markdown><textarea data-template>
 ## Images
 
@@ -353,7 +342,6 @@ img:
 fragment:
   img: fade-in-then-out
 ```
-
 
 <figure class="fragment fade-in-then-out">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" alt="" width="50%" />
@@ -376,7 +364,6 @@ math: |
   &amp;c(x) = 0
   \end{aligned}
 ```
-
 <script type="math/tex; mode=display">\begin{aligned}
 \min_{x}&amp;f(x)
 \\
@@ -397,7 +384,6 @@ youtube:
   height: 500pt
 ```
 
-
 <iframe src="https://www.youtube.com/embed/IpPH61BWObs" width="600pt"  height="400pt" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></textarea></section><section data-markdown><textarea data-template>
 ## Embeded PDF
 
@@ -407,7 +393,6 @@ youtube:
 embed:
   src: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
 ```
-
 
 <div style="position: relative">
 <embed class="stretch" width="1000px" height="450px" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"/>
