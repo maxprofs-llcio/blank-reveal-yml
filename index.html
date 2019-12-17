@@ -74,8 +74,7 @@
 
 <div class="reveal">
 <div class="slides">
-<section data-background="static/img/icon.png" data-background-size="25%">
-<section data-markdown><textarea data-template>
+<section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
 ## Reveal.yml Documentation
 
 ---
@@ -153,8 +152,7 @@ Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/g
 
 </textarea></section>
 </section>
-<section data-background="static/img/icon.png" data-background-size="25%">
-<section data-markdown><textarea data-template>
+<section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
 ## Project Options
 
 ---
@@ -178,8 +176,7 @@ slide-num: # Reveal.js slide number style: str / bool (c/t)
 </textarea></section>
 
 </section>
-<section data-background="static/img/icon.png" data-background-size="25%">
-<section data-markdown><textarea data-template>
+<section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
 ## Markdown
 
 ---
@@ -191,8 +188,7 @@ But **not** allow HTML syntax.
 </textarea></section>
 
 </section>
-<section data-background="static/img/icon.png" data-background-size="25%">
-<section data-markdown><textarea data-template>
+<section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
 ## Reveal.js Slides
 
 ---
@@ -260,12 +256,12 @@ youtube:
   src: # Embeded YouTube srouce from embed code: str (required)
   width: # Video width: int / str (&#34;&#34;)
   height: # Video height: int / str (&#34;&#34;)
-img:
-  - ... # A list of image source, please see the documentation.
+img: ... # A list of image source, please see the documentation.
 embed:
   src: # Embeded source path, like PDF: str (required)
   width: # Source width: int / str (&#34;&#34;)
   height: # Source height: int / str (&#34;&#34;)
+fragment: ... # Fragment option, please see the documentation.
 ```
 
 
@@ -284,14 +280,33 @@ Each group will map to a picture.
   height: # Height attribute of &lt;img&gt; tag: int / str (&#34;&#34;)
 ```
 
-If there has only one image, the options can under &#34;img&#34; key directly
+If there has only one image, the options can under `img` key directly
 without to list them.
+
+
+</textarea></section><section data-markdown><textarea data-template>
+## Fragment Elements
+
+---
+
+Each slide can added a `fragment` option. Except `title` and `doc`.
+
+Images will apply the effect one by one.
+
+```yaml
+fragment:
+  ELEMENT: EFFECT # Syntax
+  # Examples
+  math: # (Default, left blank or &#34;&#34;)
+  youtube: grow
+  img: fade-out
+  embed: ...
+```
 
 
 </textarea></section>
 </section>
-<section data-background="static/img/icon.png" data-background-size="25%">
-<section data-markdown><textarea data-template>
+<section data-background="static/img/icon.png" data-background-size="25%"><section data-markdown><textarea data-template>
 ## Examples
 
 ---
@@ -335,13 +350,15 @@ img:
   width: 50%
 - label: Google Logo
   src: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+fragment:
+  img: fade-in-then-out
 ```
 
 
-<figure>
+<figure class="fragment fade-in-then-out">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" alt="" width="50%" />
 <figcaption>Ubuntu Logo</figcaption>
-</figure><figure>
+</figure><figure class="fragment fade-in-then-out">
 <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""  />
 <figcaption>Google Logo</figcaption>
 </figure></textarea></section><section data-markdown><textarea data-template>
