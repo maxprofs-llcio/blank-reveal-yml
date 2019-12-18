@@ -203,6 +203,24 @@ nav:
 
 </textarea></section>
 <section data-markdown><textarea data-template>
+## Slides in HTML
+
+---
+
+In Reveal.js, the HTML structure shown as follow:
+
+```html
+&lt;section&gt; &lt;!-- Horizontal slide 1 --&gt;
+&lt;section&gt;...&lt;/section&gt; &lt;!-- Vertical slide 1 --&gt;
+&lt;section&gt;...&lt;/section&gt; &lt;!-- Vertical slide 2 --&gt;
+...
+&lt;/section&gt;
+&lt;section&gt; &lt;!-- Horizontal slide 2 --&gt;
+...
+&lt;/section&gt;
+```
+
+</textarea></section><section data-markdown><textarea data-template>
 ## Slides in YAML
 
 ---
@@ -224,11 +242,40 @@ Or just use `sub` at first slide without other attributes.
 
 ```yaml
 nav:
-  - title: First
-    doc: ...
+  - title: Horizontal slide 1
     sub:
-      - title: Vertical Slide
-        doc: ...
+      - title: Vertical slide 1
+      - title: Vertical slide 2
+  - title: Horizontal slide 2
+```
+
+</textarea></section><section data-markdown><textarea data-template>
+## Sized Attributes
+
+---
+
+Some of options are support resize. Based on HTML.
+
+So their attributes are defined as:
+
+```yaml
+sized: &amp;sized
+  src: # Source path: str (required)
+  width: # Source width: int / str (&#34;&#34;)
+  height: # Source height: int / str (&#34;&#34;)
+```
+
+And they will be interpreted as:
+
+```html
+&lt;tag src=&#34;...&#34; width=&#34;...&#34; height=&#34;...&#34;&gt;&lt;/tag&gt;
+```
+
+The &#34;sized&#34; block in the following sections will represented as YAML references.
+
+```yaml
+&lt;&lt;: *sized
+...: # other options
 ```
 
 </textarea></section><section data-markdown><textarea data-template>
@@ -245,15 +292,12 @@ id: # Custom section id: str (&#34;&#34;)
 title: # Title, transform into H2 tag: str (&#34;&#34;)
 doc: # Pargraph, allow multiline: str (&#34;&#34;)
 math: # Latex math without &#34;$$&#34; brackets, allow multiline: str (&#34;&#34;)
-youtube:
-  src: # Embeded YouTube srouce from embed code: str (required)
-  width: # Video width: int / str (&#34;&#34;)
-  height: # Video height: int / str (&#34;&#34;)
-img: ... # A list of image source, please see the documentation.
-embed:
-  src: # Embeded source path, like PDF: str (required)
-  width: # Source width: int / str (&#34;&#34;)
-  height: # Source height: int / str (&#34;&#34;)
+youtube: # Embeded YouTube srouce from embed code (&lt;iframe&gt;)
+  &lt;&lt;: *sized
+img:
+  - ... # A list of image source, please see the documentation.
+embed: # External resource, like PDF (&lt;embed&gt;)
+  &lt;&lt;: *sized
 fragment: ... # Fragment option, please see the documentation.
 ```
 
@@ -266,10 +310,20 @@ Must have at least `src` attribute to become a valid image.
 Each group will map to a picture.
 
 ```yaml
-- label: # Image caption: str (&#34;&#34;)
-  src: # Image path: str (required)
-  width: # Width attribute of &lt;img&gt; tag: int / str (&#34;&#34;)
-  height: # Height attribute of &lt;img&gt; tag: int / str (&#34;&#34;)
+- &lt;&lt;: *sized
+  label: # Image caption: str (&#34;&#34;)
+```
+
+They will interpreted like:
+
+```html
+&lt;figure&gt;
+&lt;img src=&#34;fig1&#34;/&gt;
+&lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt;&lt;figure&gt;
+&lt;img src=&#34;fig2&#34;/&gt;
+&lt;figcaption&gt;...&lt;/figcaption&gt;
+&lt;/figure&gt; ...
 ```
 
 If there has only one image, the options can under `img` key directly
