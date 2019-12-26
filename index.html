@@ -30,6 +30,16 @@
 </head>
 <body>
 <style>
+    #header {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+    }
+    #footer {
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+    }
     .reveal figure {
       display: inline-block;
       *display: inline;
@@ -70,9 +80,9 @@
         background-color: transparent;
     }
     
-</style>
-
-<div class="reveal">
+</style><div id="hidden" style="display:none;">
+    <div id="header-footer"><div id="header">Header</div><div id="footer">Footer</div></div>
+</div><div class="reveal">
 <div class="slides">
 <section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Reveal.yml Documentation
@@ -456,11 +466,12 @@ embed:
 </div>
 </div>
 <script src="static/js/reveal.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script>
     Reveal.initialize({
         history: true,
         transition: 'linear',
-        slideNumber: 'c/t',
+        slideNumber: '',
         hash: true,
         dependencies: [
             {src: 'static/plugin/markdown/marked.js'},
@@ -473,6 +484,17 @@ embed:
             {src: 'static/plugin/zoom-js/zoom.js', async: true},
         ]
     });
+    let header_footer = $('#header-footer').html();
+    if (window.location.search.match(/print-pdf/gi)) {
+        Reveal.addEventListener('ready', function(event) {
+            $('#header-footer').remove();
+            $('.slide-background').append(header_footer);
+        });
+    }
+    else {
+        $('#header-footer').remove();
+        $('div.reveal').append(header_footer);
+    }
 </script>
 </body>
 </html>
