@@ -34,6 +34,12 @@
     position: absolute;
     bottom: 1em;
     left: 1em;
+    font-size: 20pt;
+    font-family: "Microsoft JhengHei", "Apple LiGothic Medium";
+  }
+  #footer-left > * {
+    display: inline-block;
+    vertical-align: middle;
   }
   .reveal figure {
     display: inline-block;
@@ -75,7 +81,13 @@
     background-color: transparent;
   }
   
-</style>
+</style><div id="hidden" style="display:none;">
+  <div id="footer">
+    <div id="footer-left">
+      <img src="static/img/footer-icon.png" width="20%" /><span>&nbsp;機器與機電設計實驗室</span>
+    </div>
+  </div>
+</div>
 
 <div class="reveal">
 <div class="slides">
@@ -154,6 +166,38 @@ Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/g
 </textarea></section>
 </section>
 <section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+## Sized Attributes
+
+---
+
+Some of options are support resize. Based on HTML.
+
+So their attributes are defined as:
+
+```yaml
+sized: &amp;sized
+  src: # Source path: str (required)
+  width: # Source width: int / str (&#34;&#34;)
+  height: # Source height: int / str (&#34;&#34;)
+```
+
+And they will be interpreted as:
+
+```html
+&lt;tag src=&#34;...&#34; width=&#34;...&#34; height=&#34;...&#34;&gt;&lt;/tag&gt;
+```
+
+The &#34;sized&#34; block in the following sections will represented as YAML references.
+
+```yaml
+&lt;&lt;: *sized
+...: # other options
+```
+
+</textarea></section>
+
+</section>
+<section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Project Options
 
 ---
@@ -171,10 +215,26 @@ extra-style: # Extra style in CSS: str (&#34;&#34;)
 history: # Enable page history: bool (true)
 transition: # Transition mode: str (linear)
 slide-num: # Reveal.js slide number style: str / bool (c/t)
+footer: ... # Footer option, please see the documentation.
 ```
 
 </textarea></section>
+<section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+## Footer
 
+---
+
+The footer is at left buttom side.
+
+Its height is adjusted by its logo size and text height.
+
+```yaml
+footer:
+  &lt;&lt;: *sized
+  label: # A caption at the right of logo.
+```
+
+</textarea></section>
 </section>
 <section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Markdown
@@ -252,35 +312,6 @@ nav:
       - title: Vertical slide 1
       - title: Vertical slide 2
   - title: Horizontal slide 2
-```
-
-</textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
-## Sized Attributes
-
----
-
-Some of options are support resize. Based on HTML.
-
-So their attributes are defined as:
-
-```yaml
-sized: &amp;sized
-  src: # Source path: str (required)
-  width: # Source width: int / str (&#34;&#34;)
-  height: # Source height: int / str (&#34;&#34;)
-```
-
-And they will be interpreted as:
-
-```html
-&lt;tag src=&#34;...&#34; width=&#34;...&#34; height=&#34;...&#34;&gt;&lt;/tag&gt;
-```
-
-The &#34;sized&#34; block in the following sections will represented as YAML references.
-
-```yaml
-&lt;&lt;: *sized
-...: # other options
 ```
 
 </textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
@@ -403,10 +434,10 @@ fragment:
 ```
 
 <figure class="fragment fade-in-then-out">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" alt="" width="50%" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" width="50%" />
 <figcaption>Ubuntu Logo</figcaption>
 </figure><figure class="fragment fade-in-then-out">
-<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""  />
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"  />
 <figcaption>Google Logo</figcaption>
 </figure></textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Maths
@@ -443,7 +474,7 @@ youtube:
   height: 500pt
 ```
 
-<iframe src="https://www.youtube.com/embed/IpPH61BWObs" width="600pt"  height="400pt" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+<iframe src="https://www.youtube.com/embed/IpPH61BWObs" width="600pt" height="400pt" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Embeded PDF
 
 ---
@@ -454,7 +485,7 @@ embed:
 ```
 
 <div style="position: relative">
-<embed class="stretch" width="1000px" height="450px" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"/>
+<embed class="stretch" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" width="1000px" height="450px"/>
 </div></textarea></section>
 </section>
 
@@ -479,5 +510,14 @@ embed:
     ]
   });
 </script>
-</body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script>
+  let footer = $('#footer').html();
+  if ( window.location.search.match(/print-pdf/gi))
+    Reveal.addEventListener('ready', function(event) {
+      $('.slide-background').append(footer);
+    });
+  else
+    $('div.reveal').append(footer);
+</script></body>
 </html>
