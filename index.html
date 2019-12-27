@@ -37,9 +37,10 @@
     font-size: 20pt;
     font-family: "Microsoft JhengHei", "Apple LiGothic Medium";
   }
-  #footer-left > * {
+  #footer-left > a > * {
     display: inline-block;
     vertical-align: middle;
+    opacity: 0.5;
   }
   .reveal figure {
     display: inline-block;
@@ -54,7 +55,7 @@
   .reveal h4 { font-size: 25pt; }
   .reveal p, .reveal li, .reveal table { font-size: 20pt; }
   .reveal strong { color: red; }
-  .reveal pre code, .reveal section img {
+  .reveal pre code, .reveal section img, #footer-left > a > img {
     border: none;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -84,7 +85,7 @@
 </style><div id="hidden" style="display:none;">
   <div id="footer">
     <div id="footer-left">
-      <img src="static/img/footer-icon.png" width="20%" /><span>&nbsp;機器與機電設計實驗室</span>
+      <a href="http://mmd-lab.herokuapp.com/"><img src="static/img/footer-icon.png" width="20%" /><span>&nbsp;機器與機電設計實驗室</span></a>
     </div>
   </div>
 </div>
@@ -231,7 +232,8 @@ Its height is adjusted by its logo size and text height.
 ```yaml
 footer:
   &lt;&lt;: *sized
-  label: # A caption at the right of logo.
+  label: # A caption at the right of logo: str (&#34;&#34;)
+  link: # A URL link for footer: str (&#34;&#34;)
 ```
 
 </textarea></section>
