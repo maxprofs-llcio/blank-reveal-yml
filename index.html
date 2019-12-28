@@ -167,6 +167,37 @@ Powered by [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/g
 </textarea></section>
 </section>
 <section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+## Brief Introduction
+
+---
+
+The basic rules and options of Reveal.js.
+
+</textarea></section>
+<section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+## Project Options
+
+---
+
+This App will read the YAML file `reveal.yml` in the root directory.
+
+```yaml
+title: # Web page title: str (Untitled)
+description: # Page description: str (&#34;&#34;)
+author: # Page author: str (&#34;&#34;)
+watermark: # Watermark source: str (&#34;&#34;)
+watermark-size: # Source width: int / str (&#34;&#34;)
+theme: # Reveal.js theme: str (serif)
+icon: # icon path: str (img/icon.png)
+default-style: # Enable default style: bool (true)
+extra-style: # Extra style in CSS: str (&#34;&#34;)
+history: # Enable page history: bool (true)
+transition: # Transition mode: str (linear)
+slide-num: # Reveal.js slide number style: str / bool (c/t)
+footer: ... # Footer option, please see the documentation.
+```
+
+</textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Sized Attributes
 
 ---
@@ -177,9 +208,9 @@ So their attributes are defined as:
 
 ```yaml
 sized: &amp;sized
-  src: # Source path: str (required)
-  width: # Source width: int / str (&#34;&#34;)
-  height: # Source height: int / str (&#34;&#34;)
+src: # Source path: str (required)
+width: # Source width: int / str (&#34;&#34;)
+height: # Source height: int / str (&#34;&#34;)
 ```
 
 And they will be interpreted as:
@@ -195,32 +226,7 @@ The &#34;sized&#34; block in the following sections will represented as YAML ref
 ...: # other options
 ```
 
-</textarea></section>
-
-</section>
-<section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
-## Project Options
-
----
-
-This App will read the YAML file `reveal.yml` in the root directory.
-
-```yaml
-title: # Web page title: str (Untitled)
-description: # Page description: str (&#34;&#34;)
-author: # Page author: str (&#34;&#34;)
-theme: # Reveal.js theme: str (serif)
-icon: # icon path: str (img/icon.png)
-default-style: # Enable default style: bool (true)
-extra-style: # Extra style in CSS: str (&#34;&#34;)
-history: # Enable page history: bool (true)
-transition: # Transition mode: str (linear)
-slide-num: # Reveal.js slide number style: str / bool (c/t)
-footer: ... # Footer option, please see the documentation.
-```
-
-</textarea></section>
-<section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+</textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Footer
 
 ---
@@ -248,9 +254,7 @@ footer:
   link: http://mmd-lab.herokuapp.com/
 ```
 
-</textarea></section>
-</section>
-<section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+</textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Markdown
 
 ---
@@ -259,7 +263,6 @@ footer:
 But **not** allow HTML syntax.
 
 </textarea></section>
-
 </section>
 <section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Reveal.js Slides
