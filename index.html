@@ -49,6 +49,8 @@
     margin: 20px;
   }
   .reveal figure figcaption { text-align: center; }
+  .img-row { display: flex; }
+  .img-column { padding: 5px; }
   .reveal h1 { font-size: 40pt; }
   .reveal h2 { font-size: 35pt; }
   .reveal h3 { font-size: 30pt; }
@@ -454,13 +456,18 @@ fragment:
   img: fade-in-then-out
 ```
 
+<div class="img-row">
+<div class="img-column">
 <figure class="fragment fade-in-then-out">
 <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo-ubuntu_cof-orange-hex.svg" width="50%" />
 <figcaption>Ubuntu Logo</figcaption>
-</figure><figure class="fragment fade-in-then-out">
+</figure>
+</div><div class="img-column">
+<figure class="fragment fade-in-then-out">
 <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"  />
 <figcaption>Google Logo</figcaption>
-</figure></textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
+</figure>
+</div></div></textarea></section><section data-markdown  data-background="static/img/icon.png" data-background-size="25%"><textarea data-template>
 ## Maths
 
 ---
